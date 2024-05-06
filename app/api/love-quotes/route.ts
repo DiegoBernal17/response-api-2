@@ -41,9 +41,9 @@ const LOVE_QUOTES = [
 ];
 
 export function GET(request: Request) {
-  const urlParams = new URLSearchParams(request.url);
-  const toUser = urlParams.get("user") || "mariel_xo";
+  const url = new URL(request.url);
+  const toUser = url.searchParams.get("toUser") || "@mariel_xo";
   const randomNumber = Math.floor(Math.random() * LOVE_QUOTES.length);
   const randomLoveQuote = LOVE_QUOTES[randomNumber];
-  return new Response(`@${toUser} ${randomLoveQuote}`);
+  return new Response(`${toUser} ${randomLoveQuote}`);
 }
