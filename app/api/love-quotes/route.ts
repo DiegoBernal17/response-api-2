@@ -1,4 +1,4 @@
-import type { VercelRequest, VercelResponse } from "@vercel/node";
+export const dynamic = "force-dynamic"; // static by default, unless reading the request
 
 const LOVE_QUOTES = [
   "Las tentaciones como tú merecen pecados como yo.",
@@ -41,7 +41,9 @@ const LOVE_QUOTES = [
 ];
 
 export function GET(request: Request) {
+  const urlParams = new URLSearchParams(request.url);
+  const toUser = urlParams.get("user") || "mariel_xo";
   const randomNumber = Math.floor(Math.random() * LOVE_QUOTES.length);
-  const randomBanQuote = LOVE_QUOTES[randomNumber];
-  return new Response(`${randomBanQuote} - Ban`);
+  const randomLoveQuote = LOVE_QUOTES[randomNumber];
+  return new Response(`@${toUser} ${randomLoveQuote}`);
 }
