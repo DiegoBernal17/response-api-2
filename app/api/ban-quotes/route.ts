@@ -10,6 +10,8 @@ const BAN_QUOTES = [
   "Algún día, definitivamente te haré mía.",
   "¿Puedo interpretar tu silencio como un sí?",
   "No ser perfecto no quita que no valgamos la pena.",
+  "Bien… si tienes algo que decir, ¡escúpelo!",
+  "Si no vas a pelear, lárgate de aquí. Esa actitud mediocre no va a salvar a nadie, solamente te matará a ti y a tus camaradas.",
 ];
 
 export function GET(request: Request) {
